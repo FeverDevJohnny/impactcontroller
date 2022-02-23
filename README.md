@@ -1,6 +1,8 @@
 Thank you for installing Impact!
 This section will go over what you need to know to use impact correctly.
 
+TO INSTALL: Just copy the git link through the green code button on the git repo, then go to your unity package manager, hit the plus sign on the upper left part of the window, then hit the "from git url" option, slap your address in and bam: unity will install Impact into your project.
+
 == QUICKSTART GUIDE ==
 
 1). Head over to your packages folder, which is next to your assets folder in the unity project files.
@@ -9,7 +11,7 @@ This section will go over what you need to know to use impact correctly.
 
 3). Navigate to Runtime/ImpactController/Prefabs/
 
-4). Drag either of the prefabs to your scene hierarchy (or the scene view) to deploy an Impact Controller into the world. There are currently two options: Default, and Quake (the former functions a lot like Rush, while the latter has a momentum based movement system)
+4). Drag either of the prefabs to your scene hierarchy (or the scene view) to deploy an Impact Controller into the world. There are currently two options: Default, and Quake (the former functions a lot like Rush, while the latter has a momentum-based movement system)
 
 5). There you go! You can now hit the play button and walk around your world.
 
@@ -25,10 +27,10 @@ Q). I want to write my own modules, but I'm a bit confused by the documentation,
 A). As it were, each component base class has detailed comments explaining what each thing does. Please review those for more information if the programmer's guide section isn't enough.
 
 Q). What's up with the mouse tilting being improperly timescaled?
-A). Due to how input is handled by Unity, mouse input refuses to timescale correctly. As a result, I've left it alone. This is speficially a problem on the mouse tilting feature and not the mouse sensitivity, thankfully.
+A). Due to how input is handled by Unity, mouse input refuses to timescale correctly. As a result, I've left it alone. This is specifically a problem on the mouse tilting feature and not the mouse sensitivity, thankfully.
 
 Q). Can I sell a modified version of Impact?
-A). No. If you want, you can give people free copies of the modified controller, but it cannot be sold for money and you must credit me for my work. Please review the LICENSE document included with the package for more information.
+A). No. If you want, you can give people free copies of the modified controller, but it cannot be sold for money, and you must credit me for my work. Please review the LICENSE document included with the package for more information.
 
 Okay, now we can start talking about Impact's settings and the module system. We'll start with how to configure your controller, as well as reviewing which modules are attached by default.
 
@@ -55,7 +57,7 @@ Input Component [Reference - ImpactComponent_Input]: This is the input module fo
 
 Camera Component [Reference - ImpactComponent_Camera]: This module controls the camera. It affects various outputs, such as the camera's relative position to the player, its FOV, and most importantly, its rotation. Like most of the other module slots, this is essential and must be assigned.
 
-Motion Component [Reference - ImpactComponent_Motion]: This module handles moving the character around, and is arguably the most complex module in the set. It has a ton of options, and I'll cover those in its dedicated section. Like most of the other module slots, this is essential and must be assigned.
+Motion Component [Reference - ImpactComponent_Motion]: This module handles moving the character around and is arguably the most complex module in the set. It has a ton of options, and I'll cover those in its dedicated section. Like most of the other module slots, this is essential and must be assigned.
 
 Addon Components [List of References - ImpactComponent_Addon]: Unlike the other modules where only a single one really makes sense, you can have an infinite amount of addon modules attached to Impact to add extra behavior. These are also fully optional, and you can leave the list empty if you don't want any extra functionality. This is the preferred way of adding new features to Impact without having to modify the base scripts.
 
@@ -68,11 +70,11 @@ Frame Rate [Int Range, 1 - 60]: This defines what framerate Lock Framerate will 
 
 -- The Input Module --
 
-This module allows you to reconfigure your game's controls with relative ease, and was implemented to make it easier to switch to different input management solutions as Unity evolves. 
+This module allows you to reconfigure your game's controls with relative ease and was implemented to make it easier to switch to different input management solutions as Unity evolves. 
 The default modules work inside of Unity's old input system, but you can also get a module designed for InControl if you get the "JTools - Impact Controller - Extras" package.
 Let's go over the settings, specifically the ones that appear in the default input component, ImpactComponent_Input_Default:
 
-Lock Input [Boolean]: This is inhereted by all input modules, but basically it just prevents inputs from being read and assigns whatever values are inside of ControlsLocked();
+Lock Input [Boolean]: This is inherited by all input modules, but basically it just prevents inputs from being read and assigns whatever values are inside of ControlsLocked();
 
 Look Axis X [String]: This works in tandem with Unity's input system, reading from whichever axis you've assigned in the input settings. This controls the yaw of the camera.
 
@@ -99,7 +101,7 @@ Key Interact [KeyCode]: Key Menu [KeyCode]: This is a generic interaction button
 
 -- The Camera Module --
 
-This modules manages the camera. One of its unique properties is its "orientation" property, which must be assigned to by camera components so that other components can figure out where the player is facing.
+This module manages the camera. One of its unique properties is its "orientation" property, which must be assigned to by camera components so that other components can figure out where the player is facing.
 Let's check the settings of ImpactComponent_Camera_Default:
 
 Camera Sensitivity [Float]: Controls how sensitive the camera is to input.
@@ -175,11 +177,11 @@ Walk Rate [Float]: This drives all step event data in the camera. By increasing 
 
 Step Height [Float]: This determines how far the player can move vertically to walk up a stair step.
 
-Smooth Stepping [Boolean]: Determines whether or not the motion component should use a unique smoothing system when ascending stairs. It removes the popping that naturally happens, but comes with the consequence that the camera will move lazily to its goal position.
+Smooth Stepping [Boolean]: Determines whether or not the motion component should use a unique smoothing system when ascending stairs. It removes the popping that naturally happens but comes with the consequence that the camera will move lazily to its goal position.
 
-Smooth Player Body Stepping [Boolean]: Determines whether or not the player art root should be interpolated up stairs, similar to what smooth stepping does for the camera. Naturally, it comes with similar technical issues to consider.
+Smooth Player Body Stepping [Boolean]: Determines whether or not the player art root should be interpolated upstairs, similar to what smooth stepping does for the camera. Naturally, it comes with similar technical issues to consider.
 
-Anti Guttering [Boolean]: Anti-guttering is a feature that prevents the player from getting trapped in physical scenarios where they cannot necessarily ground, but cannot move either. These include, well, gutters (two 45 degree planes intersecting can replicate this effect). Enabling this will allow players to jump if the system registers that they're stuck too long somewhere.
+Anti-Guttering [Boolean]: Anti-guttering is a feature that prevents the player from getting trapped in physical scenarios where they cannot necessarily ground but cannot move either. These include, well, gutters (two 45-degree planes intersecting can replicate this effect). Enabling this will allow players to jump if the system registers that they're stuck too long somewhere.
 
 Gravity [Float]: Determines how much downward force is applied to the player each frame.
 
@@ -187,9 +189,9 @@ Gravity Cap [Float]: Determines the maximum amount of gravity the player can exp
 
 Slide Speed Cap [Float]: Determines the maximum amount of speed the player can experience when sliding down slopes. This prevents sliding from building up so much that you fire down the slope like a rocket.
 
-Drag [Float Range, 0 - 1]: Determines how quickly the player returns to standing still. Lowering this down makes the game feel like you're on ice, and if it's too hight you'll stop instantly when you're not steering the character in a given direction.
+Drag [Float Range, 0 - 1]: Determines how quickly the player returns to standing still. Lowering this down makes the game feel like you're on ice, and if it's too high you'll stop instantly when you're not steering the character in a given direction.
 
-Acceleration [Float Range, 0 - 1]: Determines how quickly the player accelerates towards the desired direction. If this is low you'll feel sluggish, and if it's high you'll move instantly in your desired direction. Find the best balance is important for making movement feel comfortable.
+Acceleration [Float Range, 0 - 1]: Determines how quickly the player accelerates towards the desired direction. If this is low, you'll feel sluggish, and if it's high you'll move instantly in your desired direction. Finding the best balance is important for making movement feel comfortable.
 
 Air Control [Float Range, 0 - 1]: Determines how much agency the player gets while in midair. At 1 you have full control, and at 0 you're at the whims of physics.
 
@@ -206,7 +208,7 @@ Crouch Percent [Float Range, 0.4 - 1]: Determines how much the player's collisio
 
 -- Addon Modules --
 
-So this section isn't a reference for specific variables in the addon modules, instead it talks about how this system works and what to expect from it.
+So, this section isn't a reference for specific variables in the addon modules, instead it talks about how this system works and what to expect from it.
 The purpose of an addon module is to add extra behavior that the other components shouldn't be managing. This includes having weapons or interaction systems in your game.
 Addon modules, like other impact components, have several methods you can override in your own scripts that'll allow you access to the base player as well as its attached modules.
 
@@ -215,7 +217,7 @@ Anyhow, a brief overview of the two modules that come with Impact:
 
 Addon_Animation: Connects an animator component into impact, allowing you to have animations driven by the controller's motion. Each parameter in this component has a tooltip you can read by mousing over the parameter name, and I strongly encourage reviewing those tooltips to understand how it works.
 
-Addon_Sound: Gives the controller sound support. It's a basic module, and I recommend making your own if you want more complex sounds for your player. As a fun tidbit, you can use PlayStepSound() with animation events (+ the override foot steps option in the animation component) to have your animations use this system for sound!
+Addon_Sound: Gives the controller sound support. It's a basic module, and I recommend making your own if you want more complex sounds for your player. As a fun tidbit, you can use PlayStepSound() with animation events (+ the override footsteps option in the animation component) to have your animations use this system for sound!
 
 Alright, thanks for reading all that! Let's move onto the programmer's guide, which is really important if you end up modifying the controller in any way.
 
@@ -240,14 +242,14 @@ ImpactComponent_Camera: Inherit from this if you need a custom camera solution. 
 
 ImpactComponent_Addon: Inherit from this if you're adding unique subsystems that don't cover major parts of the controller like the above components do. This includes interaction systems, weapon systems, dialog management, etc. etc.
 
-Once your class inherits from the above classes, you'll gain access to a bunch of built-in methods, variables and events. This might seem a bit frightening, but look at the guide below to learn the important stuff.
+Once your class inherits from the above classes, you'll gain access to a bunch of built-in methods, variables and events. This might seem a bit frightening but look at the guide below to learn the important stuff.
 
 
 -- Impact Component --
 
 All impact components you make will inherit these properties, as this is the base class that forms the backbone for all of the four variants.
 
-public ImpactController owner: This determines which impactcontroller instance owns this component. By default the initialize method will automatically assign this to whichever controller initialized this component.
+public ImpactController owner: This determines which impactcontroller instance owns this component. By default, the initialize method will automatically assign this to whichever controller initialized this component.
 
 public bool initialized: This determines whether or not a component is initialized. Thankfully for you, this means you can swap components out at runtime, and impact will use this to make sure all components attached to it are initialized every update.
 
@@ -300,12 +302,13 @@ Variables:
 
 public Vector3 cameraAngles: This is the rotation, in eulerangles, that your camera is in. The default components use this to drive their rotations, so if you want to manipulate their rotation from a custom component, you'll need to use this, or lock the camera and change the transform's rotation manually.
 
-public Vector3 cameraOrigin: This is the position in local coordinates that determines where the camera's resting position is. This is used for viewbobbing, and should be assigned if you're implementing your own viewbobbing system.
+public Vector3 cameraOrigin: This is the position in local coordinates that determines where the camera's resting position is. This is used for viewbobbing and should be assigned if you're implementing your own viewbobbing system.
 
 public float baseFOV: This is the camera's true FOV. Assign this to change the camera's zoom correctly. Modifying the camera component directly won't do anything.
+
 public UnityEvent onStep: This event is invoked whenever the camera dips down during its step event. Invoke this event whenever your component should play a step sound or invoke whatever other scripts you connect to it.
 
-public float cameraSensitivity: This is self explanatory. Change this to change how quickly you look around.
+public float cameraSensitivity: Change this to modify how quickly you look around.
 
 public float screenshakeDecayFactor: This is how quickly screenshake fades away. 
 
