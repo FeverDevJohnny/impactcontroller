@@ -5,9 +5,9 @@
   "description": "A general purpose player controller combining both aspects of first-person and third-person, with the ability to switch between the two as you please.\n\nImpact's highly advanced modular structure makes it possible to expand your player however you need, whether it's making the game's input entirely built around a trackball, or working from a fixed camera perspective, you can go wherever you want!",
   "unity": "2020.3",
   "unityRelease": "0f1",
-  "documentationUrl": "https://example.com/",
+  "documentationUrl": "https://github.com/FeverDevJohnny/impactcontroller/blob/main/README.md",
   "changelogUrl": "https://example.com/changelog.html",
-  "licensesUrl": "https://example.com/licensing.html",
+  "licensesUrl": "https://github.com/FeverDevJohnny/impactcontroller/blob/main/LICENSE.md",
   "keywords": [
     "Controller",
     "Player Controller",
