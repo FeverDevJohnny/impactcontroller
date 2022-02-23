@@ -2,6 +2,7 @@ Thank you for installing Impact Controller!
 This section will go over what you need to know to use impact correctly.
 
 == QUICKSTART GUIDE ==
+
 1). Head over to your packages folder, which is next to your assets folder in the unity project files.
 2). Open "JTools - Impact Controller"
 3). Navigate to Runtime/ImpactController/Prefabs/
