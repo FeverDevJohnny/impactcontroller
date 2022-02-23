@@ -28,9 +28,12 @@ A). No. If you want, you can give people free copies of the modified controller,
 
 Okay, now we can start talking about Impact's settings and the module system. We'll start with how to configure your controller, as well as reviewing which modules are attached by default.
 
+
 == IMPACT CONTROLLER MODULES ==
 
+
 -- The Base Script --
+
 While your modules can vary, the most important component of the Impact Controller is just that - The Impact Controller.
 This script is what runs all of the updates for your attached modules. Let's go over all of the settings.
 
@@ -60,6 +63,7 @@ Frame Rate [Int Range, 1 - 60]: This defines what framerate Lock Framerate will 
 
 
 -- The Input Module --
+
 This module allows you to reconfigure your game's controls with relative ease, and was implemented to make it easier to switch to different input management solutions as Unity evolves. 
 The default modules work inside of Unity's old input system, but you can also get a module designed for InControl if you get the "JTools - Impact Controller - Extras" package.
 Let's go over the settings, specifically the ones that appear in the default input component, ImpactComponent_Input_Default:
@@ -90,6 +94,7 @@ Key Interact [KeyCode]: Key Menu [KeyCode]: This is a generic interaction button
 
 
 -- The Camera Module --
+
 This modules manages the camera. One of its unique properties is its "orientation" property, which must be assigned to by camera components so that other components can figure out where the player is facing.
 Let's check the settings of ImpactComponent_Camera_Default:
 
@@ -139,6 +144,7 @@ Zoom Intensity [Float]: Affects the camera's FOV when the player zooms in. Set t
 
 
 -- The Motion Module --
+
 This will be the final module we'll cover in depth for this readme. After this, I'll briefly talk about the addon modules system and then we'll move on to the programming guide.
 The motion module manages the player's movement, as well as various events that you can subscribe to in custom scripts (this includes onLanding, as well as onJump).
 Let's Begin:
@@ -195,6 +201,7 @@ Crouch Percent [Float Range, 0.4 - 1]: Determines how much the player's collisio
 
 
 -- Addon Modules --
+
 So this section isn't a reference for specific variables in the addon modules, instead it talks about how this system works and what to expect from it.
 The purpose of an addon module is to add extra behavior that the other components shouldn't be managing. This includes having weapons or interaction systems in your game.
 Addon modules, like other impact components, have several methods you can override in your own scripts that'll allow you access to the base player as well as its attached modules.
@@ -208,7 +215,9 @@ Addon_Sound: Gives the controller sound support. It's a basic module, and I reco
 
 Alright, thanks for reading all that! Let's move onto the programmer's guide, which is really important if you end up modifying the controller in any way.
 
+
 == PROGRAMMER'S GUIDE ==
+
 
 Of course, I strongly recommend you have a good understanding of C# before trying to hammer new features onto Impact. It's not the most complex controller in the world, but if you end up having to diagnose errors because your code conflicts with Impact, you're gonna have a fun time digging through it all.
 On a more important note, Impact's code is HEAVILY commented. The guide here isn't a comprehensive explanation, rather an overview to help you understand how all of this works.
@@ -216,6 +225,7 @@ If you want to actually understand what each method/variable/event does in detai
 Now then, let's go through all the important details as well as how to write your own components.
 
 -- Impact Component Overview --
+
 When writing an Impact Component (the in-engine name for modules), your class will need to inherit from one of four module types:
 
 ImpactComponent_Motion: Inherit from this if you're going to modify anything involving the character's movement. This might be relevant if you're making a game that doesn't work from a conventional "humanoid" perspective (like a racing game).
@@ -230,6 +240,7 @@ Once your class inherits from the above classes, you'll gain access to a bunch o
 
 
 -- Impact Component --
+
 All impact components you make will inherit these properties, as this is the base class that forms the backbone for all of the four variants.
 
 public ImpactController owner: This determines which impactcontroller instance owns this component. By default the initialize method will automatically assign this to whichever controller initialized this component.
@@ -251,6 +262,7 @@ What you see here is the majority of what you'll be dealing with while writing c
 
 
 -- ImpactComponent_Motion Communication --
+
 Variables:
 
 public Quaternion orientation: This is possibly the most important communication variable the motion component has. This is assigned to by other components (namely the camera component by default) to tell the motion component which direction it needs to apply movement in. This should normally correspond with the camera's yaw alone, but you can modify the orientation if you need something more exotic.
@@ -267,6 +279,7 @@ public float crouchTime: This is a percentage between 0 and 1 that affects wheth
 
 
 -- ImpactComponent_Camera Communication --
+
 Methods:
 
 public virtual void OnStairStep(Vector3 m_smoothDirectionVector): This is used with the motion component to manage how the camera should react to stepping up a stair. The vector3 provided is the direction and distance the player moved while stepping up the stair.
@@ -296,6 +309,7 @@ public Transform lookTarget: This is the current object the camera is tracking i
 
 
 -- ImpactComponent_Input Communication --
+
 Methods:
 
 public virtual void ChangeLockState(bool state): This determines whether or not the player's controls are locked. If active, then the input module calls ControlsLocked(), if inactive the input module calls Controls() instead.
@@ -314,6 +328,7 @@ public UnityEvent onUnlock: This is invoked whenever input is unlocked again. Ot
 
 
 -- ImpactComponent_Addon Communication --
+
 Addons don't have any communication methods/variables. They're basically the same as the default ImpactComponent, but they're designed to slot into the ImpactController's addons list. 
 
 Please review the scripts in-editor if you need more information. The comments should do most of the work.
