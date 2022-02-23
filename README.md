@@ -1,4 +1,4 @@
-Thank you for installing Impact Controller!
+Thank you for installing Impact!
 This section will go over what you need to know to use impact correctly.
 
 == QUICKSTART GUIDE ==
