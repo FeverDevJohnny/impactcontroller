@@ -4,9 +4,13 @@ This section will go over what you need to know to use impact correctly.
 == QUICKSTART GUIDE ==
 
 1). Head over to your packages folder, which is next to your assets folder in the unity project files.
+
 2). Open "JTools - Impact Controller"
+
 3). Navigate to Runtime/ImpactController/Prefabs/
+
 4). Drag either of the prefabs to your scene hierarchy (or the scene view) to deploy an Impact Controller into the world. There are currently two options: Default, and Quake (the former functions a lot like Rush, while the latter has a momentum based movement system)
+
 5). There you go! You can now hit the play button and walk around your world.
 
 == TROUBLESHOOTING ==
