@@ -111,11 +111,8 @@ namespace JTools
             {
                 if (addonComponents[i] != null)
                 {
-                    if (!addonComponents[i].initialized)
-                    {
-                        addonComponents[i].ComponentInitialize(this);
-                        addonComponents[i].initialized = true;
-                    }
+                    addonComponents[i].ComponentInitialize(this);
+                    addonComponents[i].initialized = true;
                 }
             }
 
