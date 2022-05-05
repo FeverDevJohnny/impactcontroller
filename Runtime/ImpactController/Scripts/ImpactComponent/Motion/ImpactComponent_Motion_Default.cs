@@ -216,7 +216,7 @@ namespace JTools
             //Crouching control/logic (check just a bit further down for the part where the height is actually affected!)
             if (crouchMode != ImpactMotion_CrouchSetting.none) //Assuming we're actually letting the player crouch
             {
-                if (!Physics.SphereCast(new Ray(transform.position + (Vector3.up * player.capsuleCollider.height * 0.5f), Vector3.up), player.playerRadius * 0.9f, player.playerHeight * 0.52f, groundingLayers, QueryTriggerInteraction.Ignore)) //We fire a check above the player to make sure they're not trying to stand up while a ceiling is present.
+                if (!Physics.SphereCast(new Ray(transform.position + (Vector3.up * player.playerHeight * 0.5f), Vector3.up), player.playerRadius * 0.9f, player.playerHeight * 0.52f, groundingLayers, QueryTriggerInteraction.Ignore) && !Physics.Raycast(transform.position + (Vector3.up * player.playerHeight * 0.5f), Vector3.up, player.playerHeight * 0.52f, groundingLayers, QueryTriggerInteraction.Ignore)) //We fire a check above the player to make sure they're not trying to stand up while a ceiling is present.
                     isCrouching = ((!player.inputComponent.lockInput) ? player.inputComponent.inputData.holdingCrouch : false);
                 else
                     isCrouching = ((player.inputComponent.inputData.pressedCrouch) || (crouchTime >= 0.1f));
