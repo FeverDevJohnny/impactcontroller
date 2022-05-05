@@ -233,7 +233,7 @@ namespace JTools
 
             if (lookTarget == null && !restrainCameraRotating)
             {
-                m_camPos = (transform.position + Vector3.up * player.playerHeight * 0.5f) + (Quaternion.Euler(cameraAngles.x, cameraAngles.y, 0f) * Vector3.Lerp(new Vector3(0.5f, 0.5f, -thirdPersonOrbitDistance * 0.5f), new Vector3(0f, 0f, -thirdPersonOrbitDistance), m_zoomLerp));
+                m_camPos = (transform.position + Vector3.up * player.capsuleCollider.height * 0.5f) + (Quaternion.Euler(cameraAngles.x, cameraAngles.y, 0f) * Vector3.Lerp(new Vector3(0.5f, 0.5f, -thirdPersonOrbitDistance * 0.5f), new Vector3(0f, 0f, -thirdPersonOrbitDistance), m_zoomLerp));
 
                 if (Physics.SphereCast(transform.position + Vector3.up * player.capsuleCollider.height * 0.5f, 0.15f, Quaternion.Euler(cameraAngles.x, cameraAngles.y, 0f) * Vector3.Lerp(new Vector3(0.5f, 0.5f, -thirdPersonOrbitDistance * 0.5f), new Vector3(0f, 0f, -thirdPersonOrbitDistance), m_zoomLerp).normalized, out m_hit, Mathf.Lerp(new Vector3(0.5f, 0.5f, -thirdPersonOrbitDistance * 0.5f).magnitude, thirdPersonOrbitDistance, m_zoomLerp), cameraOccluders, QueryTriggerInteraction.Ignore))
                 {
@@ -257,7 +257,7 @@ namespace JTools
             }
             else
             {
-                m_camPos = (transform.position + Vector3.up * player.playerHeight * 0.5f) + (player.playerCamera.transform.rotation * new Vector3(0f, 0f, -thirdPersonOrbitDistance));
+                m_camPos = (transform.position + Vector3.up * player.capsuleCollider.height * 0.5f) + (player.playerCamera.transform.rotation * new Vector3(0f, 0f, -thirdPersonOrbitDistance));
 
                 if (Physics.SphereCast(transform.position + Vector3.up * player.capsuleCollider.height * 0.5f, 0.15f, player.playerCamera.transform.rotation * -Vector3.forward, out m_hit, thirdPersonOrbitDistance, cameraOccluders, QueryTriggerInteraction.Ignore))
                 {
