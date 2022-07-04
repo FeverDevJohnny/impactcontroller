@@ -270,7 +270,7 @@ namespace JTools
                 if (m_sliding)
                     m_canJump = false;
 
-                movement = ImpactController.RLerp(movement, orientation * new Vector3(player.inputComponent.inputData.motionInput.x * topSpeed, movement.y, player.inputComponent.inputData.motionInput.z * topSpeed), (player.inputComponent.inputData.motionInput.magnitude > 0.2f) ? acceleration : drag * ((!isGrounded) ? airControl : 1f));
+                movement = ImpactController.RLerp(movement, orientation * new Vector3(player.inputComponent.inputData.motionInput.x * topSpeed, movement.y, player.inputComponent.inputData.motionInput.z * topSpeed), (player.inputComponent.inputData.motionInput.magnitude > 0.2f) ? (acceleration * ((!isGrounded) ? airControl : 1f)) : (drag * ((!isGrounded) ? airControl : 1f)));
 
             }
             else
