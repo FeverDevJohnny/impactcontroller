@@ -328,7 +328,7 @@ namespace JTools
             */
 
             m = m_rig.velocity;
-            m.y = Mathf.Clamp(m.y - gravity * Time.deltaTime * (m_rig.velocity.y > 0f ? 1f : 1.25f), (!m_sliding) ? gravityCap : slideSpeedCap, Mathf.Infinity);
+            m.y = Mathf.Clamp(m.y - gravity * Time.deltaTime * (m_rig.velocity.y > 0f ? 1f : 1.25f), (!m_sliding) ? -gravityCap : -slideSpeedCap, Mathf.Infinity);
             m_rig.velocity = m;
 
             if (m_sliding)
