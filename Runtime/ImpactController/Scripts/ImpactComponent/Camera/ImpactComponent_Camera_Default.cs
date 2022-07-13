@@ -166,6 +166,10 @@ namespace JTools
                     m_camPosTracer = ImpactController.RLerp(m_camPosTracer, cameraOrigin, 0.4f); //If the player isn't on the ground, the camera goes back to its default position.
 
             }
+             else
+            {
+                m_camPosTracer = ImpactController.RLerp(m_camPosTracer, cameraOrigin, 0.4f); //If the player isn't on the ground, the camera goes back to its default position.
+            }
 
             if (player.playerArtRoot != null && player.motionComponent.smoothPlayerBodyStepping)
                 player.playerArtRoot.localPosition = m_stairSmoothing;
