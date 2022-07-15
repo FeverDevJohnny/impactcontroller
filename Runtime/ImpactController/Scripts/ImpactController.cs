@@ -245,14 +245,14 @@ namespace JTools
         {
             t = 1f - Mathf.Pow(1f - t, Time.unscaledDeltaTime * 60f);
 
-            return (Vector3.Distance(a, b) > 0.01f) ? (a + (b - a) * t) : b;
+            return (Vector3.Distance(a, b) > 0.001f) ? (a + (b - a) * t) : b;
         }
 
         public static float RLerp(float a, float b, float t)
         {
             t = 1f - Mathf.Pow(1f - t, Time.unscaledDeltaTime * 60f);
 
-            return (Mathf.Abs(a - b) > 0.01f) ? (a + (b - a) * t) : b;
+            return (Mathf.Abs(a - b) > 0.001f) ? (a + (b - a) * t) : b;
         }
 
         /*
