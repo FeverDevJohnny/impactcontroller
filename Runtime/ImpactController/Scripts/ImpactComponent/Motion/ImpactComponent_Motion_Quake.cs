@@ -17,8 +17,8 @@ namespace JTools
         [Tooltip("A system that gives the player the ability to jump if they're technically \"midair\" but can't move. This isn't terribly common, but four slopes leading inward can cause it, along with poorly designed collision geometry.")]public bool antiGuttering = true;
         [Space]
         [Tooltip("The amount of gravity the player experiences per frame.")] public float gravity = 30f;
-        [Tooltip("The maximum fall speed possible.")] public float gravityCap = -100f;
-        [Tooltip("The maximum speed the player will slide down slopes.")] public float slideSpeedCap = -45f;
+        [Tooltip("The maximum fall speed possible.")] public float gravityCap = 100f;
+        [Tooltip("The maximum speed the player will slide down slopes.")] public float slideSpeedCap = 45f;
         [Space]
         [Tooltip("Interpolation for player controls. Set this to 1 if you want to just snap the movement, set it to 0.01 for the loosest gaming experience you can imagine.")] [Range(0.01f, 1f)] public float moveShiftRate = 1f;
         [Tooltip("The amount of control a player gets in the air. 0 means absolutely none, 1 means same amount as on the ground.")] [Range(0f, 1f)] public float airControl = 1f;
