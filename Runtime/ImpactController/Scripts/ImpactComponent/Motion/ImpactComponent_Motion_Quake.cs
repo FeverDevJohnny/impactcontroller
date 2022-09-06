@@ -16,7 +16,7 @@ namespace JTools
         [Tooltip("Determines whether or not the player can simply hold space to bunny hop. Disabling this makes b-hopping more of a skill based affair.")] public bool autoBunnyHopping = true;
         [Tooltip("A system that gives the player the ability to jump if they're technically \"midair\" but can't move. This isn't terribly common, but four slopes leading inward can cause it, along with poorly designed collision geometry.")]public bool antiGuttering = true;
         [Space]
-        [Tooltip("The amount of gravity the player experiences per frame.")] public float gravity = 30f;
+        [Tooltip("The amount of gravity the player experiences per frame.")] public float gravity = 40f;
         [Tooltip("The maximum fall speed possible.")] public float gravityCap = 100f;
         [Tooltip("The maximum speed the player will slide down slopes.")] public float slideSpeedCap = 45f;
         [Space]
@@ -100,7 +100,7 @@ namespace JTools
             //Same for the rigidbody, manually set here.
             m_rig = gameObject.AddComponent<Rigidbody>();
             m_rig.freezeRotation = true;
-            m_rig.useGravity = true;
+            m_rig.useGravity = false;
             m_rig.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
         }
 
